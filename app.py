@@ -1,10 +1,16 @@
+import platform
+import pathlib
+
+# Cross-platform path patch for Linux deployment of Windows-trained fastai models
+if platform.system() != 'Windows':
+    pathlib.WindowsPath = pathlib.PosixPath
+
 import streamlit as st
 import dicomsdl
 import cv2
 import tempfile
 import os
 import numpy as np
-import pathlib
 
 from fastai.vision.all import *
 
@@ -35,12 +41,6 @@ def dicom_file_to_ary(path):
     return (data * 255).astype(np.uint8)
 
 st.title("Breast Cancer DICOM Classifier")
-
-import platform
-
-# Cross-platform path patch for Linux deployment of Windows-trained fastai models
-if platform.system() != 'Windows':
-    pathlib.WindowsPath = pathlib.PosixPath
 
 if 'learner' not in st.session_state:
     try:
