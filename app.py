@@ -36,6 +36,12 @@ def dicom_file_to_ary(path):
 
 st.title("Breast Cancer DICOM Classifier")
 
+import platform
+
+# Cross-platform path patch for Linux deployment of Windows-trained fastai models
+if platform.system() != 'Windows':
+    pathlib.WindowsPath = pathlib.PosixPath
+
 if 'learner' not in st.session_state:
     try:
         st.session_state.learner = load_learner('export.pkl')
