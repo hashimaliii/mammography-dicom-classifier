@@ -64,7 +64,10 @@ if uploaded_file is not None:
         
         # Convert 1-channel grayscale to 3-channel RGB
         img_rgb = cv2.cvtColor(img_array, cv2.COLOR_GRAY2RGB)
-        st.image(img_rgb, caption="Processed DICOM")
+        show_image = st.toggle("Display processed DICOM image", value=True)
+
+        if show_image:
+            st.image(img_rgb, caption="Processed DICOM")
         
         # Write to a temporary PNG to perfectly mimic Kaggle's DataLoader
         png_path = tmp_path.replace(".dcm", ".png")
