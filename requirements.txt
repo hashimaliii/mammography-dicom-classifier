@@ -1,0 +1,8 @@
+dicomsdl
+fastai<2.8.0
+fastcore<1.6.0
+numpy<2.0.0
+opencv-python-headless
+timm==0.6.12
+pydicom
+streamlit
