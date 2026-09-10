@@ -1,8 +1,8 @@
-dicomsdl
-fastai<2.8.0
-fastcore<1.6.0
-numpy<2.0.0
-opencv-python-headless
-timm==0.6.12
-pydicom
-streamlit
+streamlit>=1.33.0
+huggingface_hub>=0.23.0
+fastai>=2.7.14
+timm>=0.9.0
+dicomsdl>=0.109.2
+opencv-python-headless>=4.9.0
+Pillow>=10.0.0
+numpy>=1.26.0
